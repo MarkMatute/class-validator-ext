@@ -1,6 +1,6 @@
 {
     "name": "class-validator-ext",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "class-validator-ext",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
