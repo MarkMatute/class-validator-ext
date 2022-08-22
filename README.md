@@ -56,11 +56,24 @@ class User {
 
 This will return **key: value** errors
 
+**Invalid**
 ```
-    {
-        "email": "email should not be empty",
-        "password": "password should not be empty"
-    }
+   {
+        isValid: false,
+        errors: {
+            "email": "email should not be empty",
+            "password": "password should not be empty"
+        }
+   }
+```
+
+**Valid**
+
+```
+   {
+        isValid: true,
+        errors: { }
+   }
 ```
 
 ## Author

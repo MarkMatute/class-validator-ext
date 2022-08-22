@@ -1,6 +1,11 @@
 import { validate } from 'class-validator';
 
-export const validateAndExtract = async (params) => {
+export interface ExtractedError {
+  isValid: boolean;
+  errors: [string: string][];
+}
+
+export const validateAndExtract = async (params: any): Promise<ExtractedError> => {
   const errors = await validate(params);
   const massagedErrors: any = {};
   errors.forEach((e) => {
@@ -8,5 +13,9 @@ export const validateAndExtract = async (params) => {
     const constrainKey = Object.keys(e.constraints)[0];
     massagedErrors[property] = e.constraints[constrainKey];
   });
-  return massagedErrors;
+
+  return {
+    isValid: errors.length === 0,
+    errors: massagedErrors,
+  };
 };
